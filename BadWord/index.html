@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+   <head>
+      <title>Bad Word Manipulation</title>
+      <meta charset='UTF-8'>
+      <meta name="robots" content="noindex">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+      <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-offset-1 col-sm-8">
+               <center>
+                  <h2>Bad Word Manipulation</h2>
+               </center>
+               <form class="form-horizontal" method="POST">
+                  <div class="form-group">
+                     <label for="replacetext" class="col-sm-4 control-label">Text :</label>
+                     <div class="col-sm-8">
+                        <textarea type="text" name="replacetext" class="form-control" id="replacetext" placeholder="Asu lo tolol" required="required"></textarea>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="btn btn-sm btn-primary">Manipulate</button>
+                     </div>
+                  </div>
+               </form>
+               <div class="form-group">
+                  <div class="col-sm-offset-7 col-sm-8">
+                     <button id="btn1" class="btn btn-sm btn-primary">Explanation</button>
+                     <a href="./translate.html"><button class="btn btn-sm btn-primary">Translator</button></a>
+                  </div>
+                  <div class="col-sm-offset-4 col-sm-8">
+                     <p></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         $(document).ready(function(){
+             $("form").submit(function(){
+                 var inputan = $("#replacetext").val();
+         		var strx = inputan.toLowerCase();;
+         		
+         		String.prototype.replaceAll = function(search, replacement) {
+         			var target = this;
+         			return target.replace(new RegExp(search, 'g'), replacement);
+         		};
+         
+         		function replaceAll(str, map){
+         			for(key in map){
+         				str = str.replaceAll(key, map[key]);
+         			}
+         			return str;
+         		}
+         
+         		var map = {
+         			'kontol' : 'fajar',
+         			'ngentot' : 'rizky',
+         			'anjing' : 'yoga',
+         			'bangsat' : 'dimas', 
+         			'babi' : 'rayhan', 
+         			'ngentod' : 'atma', 
+         			'memek' : 'dani', 
+         			'kimak' : 'ridho', 
+         			'tempik' : 'dika', 
+         			'asu' : 'pebri', 
+         			'tolol' : 'andi', 
+         			'puki' : 'ali', 
+         			'jembud' : 'hendro', 
+         			'pepek' : 'aji', 
+         			'jancok' : 'john', 
+         			'biadab' : 'tri', 
+         			'pantek' : 'wahyu', 
+         			'peler' : 'jeremia', 
+         			'bangsad' : 'ari', 
+         			'jembod' : 'nathaniel', 
+         			'peju' : 'iqbal', 
+         			'jablay' : 'anwar', 
+         			'lonte' : 'dewi', 
+         			'bispak' : 'noel', 
+         			'monyet' : 'roy', 
+         			'anjink' : 'daffa', 
+         			'jancuk' : 'ridwan', 
+         			'pukimak' : 'riky', 
+         			'meki' : 'jonatan', 
+         			'bego' : 'rio', 
+         			'goblok' : 'tony', 
+         			'kampang' : 'arifin'
+         		};
+         		var manipulate = replaceAll(strx, map);
+         		document.write(manipulate.toUpperCase());
+             });
+         });
+         
+         $(document).ready(function(){
+             $("#btn1").click(function(){
+                 $("p").append("<center>KONTOL = FAJAR<br>NGENTOT = RIZKY<br>ANJING = YOGA<br>BANGSAT = DIMAS <br>BABI = RAYHAN <br>NGENTOD = ATMA <br>MEMEK = DANI <br>KIMAK = RIDHO <br>TEMPIK = DIKA <br>ASU = PEBRI <br>TOLOL = ANDI <br>PUKI = ALI <br>JEMBUD = HENDRO <br>PEPEK = AJI <br>JANCOK = JOHN <br>BIADAB = TRI <br>PANTEK = WAHYU <br>PELER = JEREMIA <br>BANGSAD = ARI <br>JEMBOD = NATHANIEL <br>PEJU = IQBAL <br>JABLAY = ANWAR <br>LONTE = DEWI <br>BISPAK = NOEL <br>MONYET = ROY <br>ANJINK = DAFFA <br>JANCUK = RIDWAN <br>PUKIMAK = RIKY <br>MEKI = JONATAN <br>BEGO = RIO <br>GOBLOK = TONY <br>KAMPANG = ARIFIN</center>");
+         		$(this).hide();
+         	});
+         });
+      </script>
+   </body>
+</html>
