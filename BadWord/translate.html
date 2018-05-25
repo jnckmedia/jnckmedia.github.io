@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+<head>
+<meta charset='UTF-8'>
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-8">
+		<center><h2>Bad Word Translator</h2></center>
+            <form class="form-horizontal" method="POST">
+                <div class="form-group">
+                    <label for="replacetext" class="col-sm-4 control-label">Text :</label>
+                    <div class="col-sm-8">
+                        <textarea type="text" name="replacetext" class="form-control" id="replacetext" placeholder="PEBRI LO FAJAR" required="required"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="btn btn-sm btn-primary">Translate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function(){
+    $("form").submit(function(){
+        var inputan = $("#replacetext").val();
+		var strx = inputan.toLowerCase();;
+		
+		String.prototype.replaceAll = function(search, replacement) {
+			var target = this;
+			return target.replace(new RegExp(search, 'g'), replacement);
+		};
+
+		function replaceAll(str, map){
+			for(key in map){
+				str = str.replaceAll(key, map[key]);
+			}
+			return str;
+		}
+
+		var map = {
+			'fajar' : 'kontol',
+			'rizky' : 'ngentot',
+			'yoga' : 'anjing',
+			'dimas' : 'bangsat', 
+			'rayhan' : 'babi', 
+			'atma' : 'ngentod', 
+			'dani' : 'memek', 
+			'ridho' : 'kimak', 
+			'dika' : 'tempik', 
+			'pebri' : 'asu', 
+			'andi' : 'tolol', 
+			'ali' : 'puki', 
+			'hendro' : 'jembud', 
+			'aji' : 'pepek', 
+			'john' : 'jancok', 
+			'tri' : 'biadab', 
+			'wahyu' : 'pantek', 
+			'jeremia' : 'peler', 
+			'ari' : 'bangsad', 
+			'nathaniel' : 'jembod', 
+			'iqbal' : 'peju', 
+			'anwar' : 'jablay', 
+			'dewi' : 'lonte', 
+			'noel' : 'bispak', 
+			'roy' : 'monyet', 
+			'daffa' : 'anjink', 
+			'ridwan' : 'jancuk', 
+			'riky' : 'pukimak', 
+			'jonatan' : 'meki', 
+			'rio' : 'bego', 
+			'tony' : 'goblok', 
+			'arifin' : 'kampang'
+		};
+		var manipulate = replaceAll(strx, map);
+		document.write(manipulate.toUpperCase());
+    });
+});
+</script>
+</body>
+</html>
